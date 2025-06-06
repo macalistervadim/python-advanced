@@ -15,6 +15,7 @@
 #         raise ValueError("Такого имени нет в базе(")
 #
 
+
 def unpacking_db(records: dict) -> list:
     match records:
         case {"book": 2, "api": 1, "authors": [*authors]}:
@@ -26,4 +27,5 @@ def unpacking_db(records: dict) -> list:
         case _:
             raise ValueError("Dont match search records")
 
-print(unpacking_db({"book": 0, "api": 0, "authors": 0}))
+
+print(unpacking_db({"book": 1, "api": 2, "authors": 2}))

@@ -2,6 +2,7 @@
 данный пример реализует match-case
 """
 
+# демонстрация match-case с строковым литералом
 # user_input = input("Введите ваше имя: ")
 #
 # match user_input:
@@ -15,7 +16,7 @@
 #         raise ValueError("Такого имени нет в базе(")
 #
 
-
+# демонстрация match-case с dict
 def unpacking_db(records: dict) -> list:
     match records:
         case {"book": 2, "api": 1, "authors": [*authors]}:
@@ -29,3 +30,17 @@ def unpacking_db(records: dict) -> list:
 
 
 print(unpacking_db({"book": 1, "api": 2, "authors": 2}))
+
+
+# демонстрация match-case с списком
+def unpacking_list(records: list) -> list:
+    match records:
+        case ["inputs", "outputs", "errors", *other]:
+            return ["inputs: path/to/file"]
+        case ["errors"]:
+            raise ValueError("No search records in db")
+        case _:
+            raise ValueError("Dont match search records")
+        
+
+print(unpacking_list(["errors"]))
